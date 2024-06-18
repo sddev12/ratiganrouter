@@ -29,7 +29,7 @@ func (r *Router) Handle(event string, handler EventHandler) {
 	r.Routes[event] = handler
 }
 
-func (r *Router) Server(ws *websocket.Conn) {
+func (r *Router) Serve(ws *websocket.Conn) {
 	for {
 		var event Event
 		if err := websocket.JSON.Receive(ws, &event); err != nil {
